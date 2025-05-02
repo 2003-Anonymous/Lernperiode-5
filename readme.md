@@ -3,8 +3,7 @@
 2.5 bis 23.5
 
 ## Grob-Planung
-
-Wie können Sie Ihr Projekt aus der Lernperiode 4 um eine Persistenz-Lösung erweitern? Was gibt es zu speichern, was für Tabellen brauchen Sie und wie muss der bestehende Code mit diesen interagieren?
+Ich möchte eine Datenbank für mein Towerdefensgame erstellen, in der ich Informationen speichern kann. 
 
 > ...
 
