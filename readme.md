@@ -3,14 +3,14 @@
 2.5 bis 23.5
 
 ## Grob-Planung
-Ich möchte eine Datenbank für mein Towerdefensgame erstellen, in der ich Informationen speichern kann. 
-
-> ...
+Ich möchte eine Datenbank für mein Towerdefensgame erstellen, in der ich Anmeldedaten und den dazugehörigen Punktestand speichern kann. 
 
 ## 2.5
+Heute habe ich eine Datenbank mit dem SQL-Server erstellt. Sie hat eine Tabelle logins und eine Tabelle scores. In der Tabelle logins hat es die Spalten userID, name und password. In der Tabelle scores hat es die Spalten userID und score. Dann habe ich noch Beispieldaten eingefügt. Da unser Lehrer uns erst nächstes mal erklärt, wie man diese Datenbank mit C# verbindet, habe ich mir noch ein wenig JSON beigebracht, weil das auch eine einfache Art ist, Daten zu speichern.
 
-- [ ] ...
-- [ ] ...
+- [ ] Meine Datenbank mit meinem C# Projekt verbinden.
+- [ ] Einen Score hinzufügen, welchen es dann in der Datenbank speichert.
+      
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
