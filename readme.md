@@ -7,31 +7,21 @@ Ich möchte eine Datenbank für mein Towerdefensgame erstellen, in der ich Anmel
 
 Heute habe ich eine Datenbank mit dem SQL-Server erstellt. Sie hat eine Tabelle logins und eine Tabelle scores. In der Tabelle logins hat es die Spalten userID, name und password. In der Tabelle scores hat es die Spalten userID und score. Dann habe ich noch Beispieldaten eingefügt. Da unser Lehrer uns erst nächstes mal erklärt, wie man diese Datenbank mit C# verbindet, habe ich mir noch ein wenig JSON beigebracht, weil das auch eine einfache Art ist, Daten zu speichern.
 
-## 2.5
+
+## 9.5 Kernfunktionalität
+
 - [ ] Meine Datenbank mit meinem C# Projekt verbinden.
 - [ ] Ein Login hinzufügen, dass man den Score zu einem bestimmten Spieler speichern kann.
       
 
-✍️ Heute habe ich... (50-100 Wörter)
-
-☝️ Vergessen Sie nicht, Ihr bestehendes Projekt und die Neuerungen von heute hochzuladen. Beschreiben Sie eindeutig, was heute an Code dazugekommen ist.
-
-## 9.5 Kernfunktionalität
-
-- [ ] ... (dieses AP sollte zur Hälfte offline, also ohne Laptop zu bearbeiten sein — beispielsweise ein Datenmodell?)
-- [ ] ...
-- [ ] ...
-
-✍️ Heute habe ich... (50-100 Wörter)
-
-☝️ Vergessen Sie nicht, bis einen ersten Code auf github hochzuladen
+Heute hatte ich ein Problem und zwar hat mein Projekt irgendwie eine Referenz zu sich selbst erstellt und dann hatte ich 180 Fehler. Das habe ich dann gelöst, indem ich den Stand vom letzten Freitag heruntergeladen habe und das in ein neues Projekt getan habe. So konnte ich dann wieder arbeiten. Das zu lösen hat aber die hälfte der Zeit in anspruch genommen. Nachdem ich dieses Problem gelöst habe, habe ich noch ein drittes Forms erstellt, auf dem man sich einloggen kann und erst dann startet das Spiel. Das mit dem parent hat hier am Anfang nicht so funktioniert, da das neue Forms im Namespace LP_5 ist und die anderen Forms sind im Namespace LP_4, da ich das beim lösen des anderen Problems übernommen habe und nicht einfach ändern konnte. Das habe ich dann gelöst, indem ich dort wo das Forms erstellt wird, vor das Form3 LP_5 hingeschriben habe. Zum Schluss habe ich noch eine Datenbank in Sqlite erstellt und begonnen, diese mit dem Login zu verbinden. Damit bin ich aber noch nicht fertig geworden.
 
 ## 16.5 Kernfunktionalität und Ausbau
 
-- [ ] ...
-- [ ] ...
-- [ ] ...
-- [ ] ...
+- [ ] Das Login mit dem Forms verbinden
+- [ ] Einen Score zum Spiel hinzufügen
+- [ ] Den Score in der Datenbank zum dazugehörigen Login speichern
+- [ ] Hizufügen, dass man ein neues Login erstellen kann, wenn man das erste mal spielt
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
