@@ -9,7 +9,7 @@ Heute habe ich eine Datenbank mit dem SQL-Server erstellt. Sie hat eine Tabelle 
 
 ## 2.5
 - [ ] Meine Datenbank mit meinem C# Projekt verbinden.
-- [ ] Einen Score hinzufügen, welchen es dann in der Datenbank speichert.
+- [ ] Ein Login hinzufügen, dass man den Score zu einem bestimmten Spieler speichern kann.
       
 
 ✍️ Heute habe ich... (50-100 Wörter)
