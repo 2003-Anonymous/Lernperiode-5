@@ -18,21 +18,18 @@ Heute hatte ich ein Problem und zwar hat mein Projekt irgendwie eine Referenz zu
 
 ## 16.5 Kernfunktionalität und Ausbau
 
-- [ ] Das Login mit dem Forms verbinden
-- [ ] Einen Score zum Spiel hinzufügen
-- [ ] Den Score in der Datenbank zum dazugehörigen Login speichern
+- [x] Das Login mit dem Forms verbinden
+- [x] Einen Score zum Spiel hinzufügen
+- [x] Den Score in der Datenbank zum dazugehörigen Login speichern
 - [ ] Hizufügen, dass man ein neues Login erstellen kann, wenn man das erste mal spielt
 
-✍️ Heute habe ich... (50-100 Wörter)
-
+Heute habe ich die Datenbank mit meinem Spiel verbunden. Wenn die Burg zerstört wird, wird die aktuelle Goldmenge als Highscore in der Datenbank gespeichert. Hier hatte ich zuerst Probleme, da ich beim relativen Pfad zur Datenbank einee ebene vergessen habe. Dann hat es immer angezeigt, dass die Tabelle nicht existiert. Da habe ich eine Weile gebraucht, bis ich den Fehler gefunden habe. Ich habe noch einen anderen Fehler gefunden, wo ich noch nicht genau weiss, warum. Es kommt immer eine Fehlermeldung, wenn ich das Spiel abschliesse. Der Highscore wird aber trotzdem gespeichert. Ich glaube, der Fehler hängt iregnwie mit den Projektilen zusammen. Ich habe versucht, ihn zu beheben, das hat aber nicht funktioniert. Dann habe ich noch das Anmeldeform mit der Datenbank verbunden. Es liest jetzt die Logindaten aus der Datenbank aus.
 ☝️ Vergessen Sie nicht, bis einen ersten Code auf github hochzuladen
 
 ## 23.5 Abschluss
 
-- [ ] ...
-- [ ] ... (falls Ihnen nichts einfällt: Können Sie mit einem PowerShell-Skript von Ihrer Datenbank regelmäßig ein *backup* erstellen?)
-- [ ] Reflexion über Ihre Arbeitsweise
-- [ ] Beschreibung des fertigen Projekts mit .gif etc.
+- [ ] Den Fehler von letztem Mal lösen.
+- [ ] Hinzufügen, dass man ein neues Login erstellen kann
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
