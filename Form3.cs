@@ -1,4 +1,5 @@
 ﻿using LP_4;
+using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,22 +14,40 @@ namespace LP_5
 {
     public partial class Form3 : Form
     {
+        public SqliteConnection connection;
         private Form1 parent;
         public Form3(Form1 parent)
         {
             InitializeComponent();
             this.parent = parent;
+
+            string connectionString = "Data Source=..\\..\\..\\Towerdefense_Db.db";
+            connection = new SqliteConnection(connectionString);
+            connection.Open();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string username = "Joshua";
-            int password = 1234;
-            if(txtBox_username.Text == username && txtBox_password.Text == "1234")
+            string username;
+            string password;
+
+            string selectQuery = "SELECT * FROM Logins";
+            SqliteCommand selectCmd = new SqliteCommand(selectQuery, connection);
+            SqliteDataReader reader = selectCmd.ExecuteReader();
+
+            while (reader.Read())
             {
-                new Form2(parent).Show();
-                this.Hide();
+                username = reader["username"].ToString();
+                password = reader["password"].ToString();
+
+                if (txtBox_username.Text == username && txtBox_password.Text == password)
+                {
+                    new Form2(parent, username, password).Show();
+                    this.Hide();
+                }
             }
+            
+            
         }
     }
 }

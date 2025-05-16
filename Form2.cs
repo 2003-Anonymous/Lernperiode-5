@@ -13,12 +13,16 @@ using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
+using Microsoft.Data.Sqlite;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace LP_4
 {
     
     public partial class Form2 : Form
     {
+        public SqliteConnection connection;
+        public string username;
 
         int gold = 50;
         
@@ -39,12 +43,17 @@ namespace LP_4
         };       
 
 
-        public Form2(Form1 parent)
+        public Form2(Form1 parent, string username, string password)
         {
             
 
             InitializeComponent();
-            //this.parent = parent;
+
+            this.username = username;
+            string connectionString = "Data Source=..\\..\\..\\Towerdefense_Db.db";
+            connection = new SqliteConnection(connectionString);
+            connection.Open();
+
             Gold_Label.Text = $"Gold: {gold}";
 
             Base fortress = new Base(this);
@@ -58,7 +67,7 @@ namespace LP_4
                 Controls.Add(platform);                
             }
 
-            
+
             
 
             //foreach (Point p in towerPositions)
@@ -74,16 +83,21 @@ namespace LP_4
 
         }
 
-
+        public void Highscore()
+        {
+            string writeQuery = $"UPDATE Logins SET highscore = '{gold}' WHERE username = '{username}'";
+            SqliteCommand writeCmd = new SqliteCommand(writeQuery, connection);
+            writeCmd.ExecuteNonQuery();
+        }
 
 
         private void back_btn_Click(object sender, EventArgs e)
         {
             parent.Show();
             this.Close();
-
         }
 
+       
 
         public void AddGold(int amount)
         {
@@ -130,6 +144,8 @@ namespace LP_4
             {
                 gold -= costs;
                 Gold_Label.Text = $"Gold: {gold}";
+
+                //Schaden erhöhen
             }
         }
     }
@@ -234,7 +250,7 @@ namespace LP_4
         private List<Point> path;
         private int currentPathIndex = 0;
         private System.Windows.Forms.Timer WalkTimer;
-        public int damage = 50;
+        public int damage = 20;
         private bool hasDamagedFortress = false;
         public CustomProgressBar EnemyHealthBar;
 
@@ -371,14 +387,11 @@ namespace LP_4
         public void Upgrade(object sender, EventArgs e)
         {
             if (sender is Tower tower)
-            {
-                bool enoughGold = false;
-
-                if (enoughGold)
-                {
-                    Form2 form = Parent as Form2;
-                    form.BuyUpgrade(sender, upgradeCosts);
-                }
+            {               
+                
+                Form2 form = Parent as Form2;
+                form.BuyUpgrade(sender, upgradeCosts);
+                
             }
         }
 
@@ -498,13 +511,14 @@ namespace LP_4
 
     public class Base : PictureBox
     {
-        public int health = 1000;
+        public int health = 100;
         private bool isDestroyed = false;
         private ProgressBar healthBar;
+        private Form2 parent;
 
-
-        public Base(Form parent)
+        public Base(Form2 parent)
         {
+            this.parent = parent;
             this.Size = new Size(35, 40);
             this.Location = new Point(10, (parent.ClientSize.Height - this.Height) / 2);
             this.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -532,6 +546,10 @@ namespace LP_4
                 isDestroyed = true;                
 
                 MessageBox.Show("Fortress destroyed");
+
+
+                parent.Highscore();
+
 
                 Application.Exit();
             }
@@ -605,7 +623,7 @@ namespace LP_4
         {
             this.health = 1000;
             this.drop = 200;
-            this.damage = 150;
+            this.damage = 60;
             this.Size = new Size(50, 50);
             this.EnemyHealthBar.Maximum = this.health;
             this.EnemyHealthBar.Value = this.health;
