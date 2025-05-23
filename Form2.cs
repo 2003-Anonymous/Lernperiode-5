@@ -15,6 +15,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 using Microsoft.Data.Sqlite;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Threading;
 
 namespace LP_4
 {
@@ -24,7 +25,7 @@ namespace LP_4
         public SqliteConnection connection;
         public string username;
 
-        int gold = 50;
+        public int gold = 50;
         
         private LP_5.Form3 parent;
         List<Point> towerPositions = new List<Point>()
@@ -105,6 +106,11 @@ namespace LP_4
             Gold_Label.Text = $"Gold: {gold}";
         }
 
+        public void UpdateGold()
+        {
+            Gold_Label.Text = $"Gold: {gold}";
+        }
+
         private void start_spawn_btn_Click(object sender, EventArgs e)
         {
             Spawn spawn = new Spawn(this);
@@ -135,19 +141,7 @@ namespace LP_4
         public void RemainingEnemys(object sender, EventArgs e)
         {
             remainingEnemies.Text = ("Remaining Enemys: ");
-        }
-
-
-        public void BuyUpgrade(object sender, int costs)
-        {
-            if(gold >= costs)
-            {
-                gold -= costs;
-                Gold_Label.Text = $"Gold: {gold}";
-
-                //Schaden erhöhen
-            }
-        }
+        }        
     }
 
 
@@ -312,9 +306,16 @@ namespace LP_4
                             hasDamagedFortress = true;
                         }
                     }
-                    
+                    Point target = Point.Empty;
 
-                    Point target = path[currentPathIndex + 1];
+                    if (currentPathIndex + 1 < path.Count)
+                    {
+                        target = path[currentPathIndex + 1];                        
+                    }
+                    else
+                    {                        
+                        this.Dispose();
+                    }
 
                     int dx = target.X - this.Left;
                     int dy = target.Y - this.Top;
@@ -355,6 +356,7 @@ namespace LP_4
         public int firerate = 5;
         private System.Windows.Forms.Timer ShootTimer;
         private Form parentForm;
+        private Form2 form2Ref;
         public int upgradeCosts = 100;
 
 
@@ -386,13 +388,13 @@ namespace LP_4
 
         public void Upgrade(object sender, EventArgs e)
         {
-            if (sender is Tower tower)
-            {               
-                
-                Form2 form = Parent as Form2;
-                form.BuyUpgrade(sender, upgradeCosts);
-                
-            }
+            if (form2Ref.gold >= upgradeCosts)
+            {
+                form2Ref.gold -= upgradeCosts;
+               
+
+                firerate += 10;                
+            }            
         }
 
     }
@@ -407,7 +409,7 @@ namespace LP_4
         private Enemy target;
         public int damage = 20;
         private System.Windows.Forms.Timer ProjectileTimer;
-
+       
         public Projectile(Point startPosition, Form parentForm)
         {
             this.Size = new Size(10, 10);
@@ -527,8 +529,8 @@ namespace LP_4
             healthBar = new ProgressBar();
             healthBar.Size = new Size(35, 5);  
             healthBar.Location = new Point(10, this.Height + 135);  
-            healthBar.Maximum = 1000;  
-            healthBar.Value = health;  
+            healthBar.Maximum = 100;  
+            healthBar.Value = health;
             healthBar.BackColor = Color.Black;  
             healthBar.ForeColor = Color.Green;  
             parent.Controls.Add(healthBar);  
@@ -555,14 +557,8 @@ namespace LP_4
             }
 
             healthBar.Value = health;
-            UpdateHealthBar();
-        }
-
-
-        public void UpdateHealthBar()
-        {
-            healthBar.Value = health;
-        }
+            
+        }       
     }
 
 

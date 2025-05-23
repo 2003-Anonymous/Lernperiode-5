@@ -32,6 +32,7 @@
             txtBox_password = new TextBox();
             txtBox_username = new TextBox();
             label1 = new Label();
+            Create_btn = new Button();
             SuspendLayout();
             // 
             // button1
@@ -69,11 +70,22 @@
             label1.TabIndex = 3;
             label1.Text = "Login";
             // 
+            // Create_btn
+            // 
+            Create_btn.Location = new Point(352, 337);
+            Create_btn.Name = "Create_btn";
+            Create_btn.Size = new Size(112, 34);
+            Create_btn.TabIndex = 4;
+            Create_btn.Text = "Create";
+            Create_btn.UseVisualStyleBackColor = true;
+            Create_btn.Click += Create_btn_Click;
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(Create_btn);
             Controls.Add(label1);
             Controls.Add(txtBox_username);
             Controls.Add(txtBox_password);
@@ -90,5 +102,6 @@
         private TextBox txtBox_password;
         private TextBox txtBox_username;
         private Label label1;
+        private Button Create_btn;
     }
 }

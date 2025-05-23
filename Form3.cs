@@ -46,8 +46,14 @@ namespace LP_5
                     this.Hide();
                 }
             }
-            
-            
+
+
+        }
+
+        private void Create_btn_Click(object sender, EventArgs e)
+        {
+            new Form4(this.parent).Show();
+            this.Hide();
         }
     }
 }
