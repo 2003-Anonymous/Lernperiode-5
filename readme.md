@@ -16,10 +16,10 @@ Heute hatte ich ein Problem, und zwar hat mein Projekt irgendwie eine Referenz z
 Nachdem ich dieses Problem gelöst hatte, habe ich noch ein drittes Form erstellt, auf dem man sich einloggen kann – erst danach startet das Spiel. Das mit dem parent hat hier am Anfang nicht funktioniert, da das neue Form im Namespace LP_5 ist und die anderen Forms im Namespace LP_4, da ich das beim Lösen des vorherigen Problems übernommen habe und nicht einfach ändern konnte. Das habe ich dann gelöst, indem ich beim Erstellen des Forms LP_5. vor Form3 geschrieben habe. Zum Schluss habe ich noch eine Datenbank in SQLite erstellt und begonnen, diese mit dem Login zu verbinden. Damit bin ich aber noch nicht fertig geworden.
 
 ## 16.5 Kernfunktionalität und Ausbau
-- [ ] Das Login mit dem Form verbinden
-- [ ] Einen Score zum Spiel hinzufügen
-- [ ] Den Score in der Datenbank zum dazugehörigen Login speichern
-- [ ] Hinzufügen, dass man ein neues Login erstellen kann, wenn man das erste Mal spielt
+- [x] Das Login mit dem Form verbinden
+- [x] Einen Score zum Spiel hinzufügen
+- [x] Den Score in der Datenbank zum dazugehörigen Login speichern
+- [x] Hinzufügen, dass man ein neues Login erstellen kann, wenn man das erste Mal spielt
 
 
 Heute habe ich die Datenbank mit meinem Spiel verbunden. Wenn die Burg zerstört wird, wird die aktuelle Goldmenge als Highscore in der Datenbank gespeichert.
@@ -28,8 +28,8 @@ Ich habe noch einen anderen Fehler gefunden, bei dem ich noch nicht genau weiß,
 Dann habe ich noch das Anmelde-Form mit der Datenbank verbunden. Es liest jetzt die Logindaten aus der Datenbank aus.
 
 ## 23.5 Abschluss
-- [ ] Den Fehler vom letzten Mal lösen
-- [ ]  Hinzufügen, dass man ein neues Login erstellen kann
+- [x] Den Fehler vom letzten Mal lösen
+- [x]  Hinzufügen, dass man ein neues Login erstellen kann
 
 Heute habe ich den Fehler vom letzten Mal gelöst. Das Problem war, dass die Gegner, wenn man das Spiel verloren hatte, weitergelaufen sind, obwohl sie keinen nächsten Punkt mehr in ihrem Pfad hatten. Der nächste Punkt war also außerhalb des Arrays. Das habe ich behoben, indem jetzt zuerst überprüft wird, ob es einen nächsten Punkt gibt. Wenn nicht, löscht sich der Gegner.
 Dann habe ich noch hinzugefügt, dass man beim ersten Spielstart ein neues Login erstellen kann, welches dann in der Datenbank gespeichert wird.
