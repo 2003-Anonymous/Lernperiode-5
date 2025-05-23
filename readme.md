@@ -1,7 +1,7 @@
-###Lernperiode 5
+# Lernperiode 5
 2.5 bis 23.5
 
-##Grobplanung
+## Grobplanung
 Ich möchte eine Datenbank für mein Tower-Defense-Game erstellen, in der ich Anmeldedaten und den dazugehörigen Punktestand speichern kann.
 
 Heute habe ich eine Datenbank mit dem SQL Server erstellt. Sie hat eine Tabelle logins und eine Tabelle scores. In der Tabelle logins gibt es die Spalten userID, name und password. In der Tabelle scores gibt es die Spalten userID und score. Dann habe ich noch Beispieldaten eingefügt. Da unser Lehrer uns erst nächstes Mal erklärt, wie man diese Datenbank mit C# verbindet, habe ich mir noch ein wenig JSON beigebracht, weil das auch eine einfache Art ist, Daten zu speichern.
